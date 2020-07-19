@@ -13,9 +13,9 @@ public class NumberDAOImpl implements NumberDAO {
   }
 
   @Override
-  public boolean addNumber(NumberDTO primeNumber) throws SQLException {
+  public boolean addNumber(NumberDTO number) throws SQLException {
     String quearyAdd = "insert into " + NumberTable +
-        " (" + NumberAttribute + ") values(" + primeNumber.getNum() + ");";
+        " (" + NumberAttribute + ") values(" + number.getNum() + ");";
     Statement stmt = con.createStatement();
     boolean res = stmt.executeUpdate(quearyAdd) > 0;
     return res;
