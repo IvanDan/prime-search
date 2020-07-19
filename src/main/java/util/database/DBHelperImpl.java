@@ -40,4 +40,29 @@ public class DBHelperImpl implements DBHelper {
       return false;
     }
   }
+
+  @Override
+  public synchronized boolean updateNumber(NumberDTO number) {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.updateNumber(number);
+    } catch (SQLException e) {
+      System.err.println("SQLException in addNumber");
+      return false;
+    }
+  }
+
+
+  @Override
+  public synchronized NumberDTO getNumber(int number) {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.getNumber(number);
+    } catch (SQLException e) {
+      System.err.println("SQLException in getNumber");
+      return null;
+    }
+  }
 }
