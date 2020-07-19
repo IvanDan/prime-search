@@ -23,7 +23,7 @@ public class NumberDAOImpl implements NumberDAO {
 
   @Override
   public boolean updateNumber(NumberDTO number) throws SQLException {
-    String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + number.isPrime() +
+    String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + number.getIsPrime() +
         " where " + NumberAttribute + " = " + number.getNum() + ";";
     Statement stmt = con.createStatement();
     boolean bool = stmt.executeUpdate(queryUpdate) > 0;
