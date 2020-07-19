@@ -15,4 +15,10 @@ public interface DBHelper {
   boolean addNumber(int number);
 
   boolean updateNumber(NumberDTO number);
+
+  NumberDTO getNumber(int number);
+
+  int isPrime(int number);
+
+  NumberDTO searchNumberForCheck();
 }
