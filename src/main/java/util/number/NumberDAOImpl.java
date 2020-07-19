@@ -22,6 +22,15 @@ public class NumberDAOImpl implements NumberDAO {
   }
 
   @Override
+  public boolean updateNumber(NumberDTO number) throws SQLException {
+    String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + number.isPrime() +
+        " where " + NumberAttribute + " = " + number.getNum() + ";";
+    Statement stmt = con.createStatement();
+    boolean bool = stmt.executeUpdate(queryUpdate) > 0;
+    return bool;
+  }
+
+  @Override
   public NumberDTO getNumber(int num) throws SQLException {
     String querySearch = "select * from " + NumberTable + " where " + NumberAttribute + " = " + num + ";";
     Statement stmt = con.createStatement();
