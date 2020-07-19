@@ -1,5 +1,7 @@
 package util.database;
 
+import util.number.NumberDTO;
+
 public interface DBHelper {
   final String URL = "jdbc:postgresql://localhost/myDatabase";
   final String USER = "postgres";
@@ -11,4 +13,6 @@ public interface DBHelper {
    * @return <code>true</code> se l'inserimento va a buon fine, <code>false</code> altrimenti
    */
   boolean addNumber(int number);
+
+  boolean updateNumber(NumberDTO number);
 }
