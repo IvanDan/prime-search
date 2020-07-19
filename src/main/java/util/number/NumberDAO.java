@@ -10,4 +10,6 @@ public interface NumberDAO {
   boolean addNumber(NumberDTO number) throws SQLException;
 
   boolean updateNumber(NumberDTO number) throws SQLException;
+
+  NumberDTO getNumber(int num) throws SQLException;
 }
