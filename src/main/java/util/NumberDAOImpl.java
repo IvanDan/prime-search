@@ -1,6 +1,7 @@
 package util;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,6 +23,14 @@ public class NumberDAOImpl implements NumberDAO {
 
   @Override
   public NumberDTO getNumber(int num) throws SQLException {
-    return null;
+    String querySearch = "select * from " + NumberTable + " where " + NumberAttribute + " = " + num + ";";
+    Statement stmt = con.createStatement();
+    ResultSet resultSet = stmt.executeQuery(querySearch);
+    if (resultSet == null)
+      return null;
+    if (resultSet.next()) {
+      return new NumberDTO(resultSet.getInt(NumberAttribute), resultSet.getBoolean(NumberIsPrimeAttribute));
+    } else
+      return null;
   }
 }
