@@ -9,6 +9,7 @@ public class DBHelper {
   private final String user = "postgres";
   private static DBHelper dbHelper = null;
   private Connection con;
+  private NumberDAO numberDAO;
 
   private DBHelper(String password) throws SQLException {
     con = DriverManager.getConnection(url, user, password);
@@ -20,5 +21,20 @@ public class DBHelper {
       return dbHelper;
     } else
       return dbHelper;
+  }
+
+  private void createNumberDAO() {
+    numberDAO = new NumberDAOImpl(con);
+  }
+
+  public synchronized boolean addNumber(int number) {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.addNumber(new NumberDTO(number));
+    } catch (SQLException e) {
+      System.err.println("SQLException in addNumber");
+      return false;
+    }
   }
 }
