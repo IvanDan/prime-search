@@ -7,7 +7,7 @@ public interface NumberDAO {
   String NumberAttribute = "numero";
   String NumberIsPrimeAttribute = "primo";
 
-  public boolean addNumber(NumberDTO primeNumber) throws SQLException;
+  boolean addNumber(NumberDTO number) throws SQLException;
 
-  public NumberDTO getNumber(int num) throws SQLException;
+  boolean updateNumber(NumberDTO number) throws SQLException;
 }
