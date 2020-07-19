@@ -3,8 +3,8 @@ package util.database;
 import util.number.NumberDTO;
 
 public interface DBHelper {
-  final String URL = "jdbc:postgresql://localhost/myDatabase";
-  final String USER = "postgres";
+  String URL = "jdbc:postgresql://localhost/myDatabase";
+  String USER = "postgres";
 
   /**
    * Questo metodo aggiunge un numero al database
