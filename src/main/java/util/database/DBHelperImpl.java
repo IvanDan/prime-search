@@ -1,23 +1,25 @@
-package util;
+package util.database;
+
+import util.number.NumberDAO;
+import util.number.NumberDAOImpl;
+import util.number.NumberDTO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBHelper {
-  private final String url = "jdbc:postgresql://localhost/myDatabase";
-  private final String user = "postgres";
-  private static DBHelper dbHelper = null;
+public class DBHelperImpl implements DBHelper {
+  private static DBHelperImpl dbHelper = null;
   private Connection con;
   private NumberDAO numberDAO;
 
-  private DBHelper(String password) throws SQLException {
-    con = DriverManager.getConnection(url, user, password);
+  private DBHelperImpl(String password) throws SQLException {
+    con = DriverManager.getConnection(URL, USER, password);
   }
 
-  public static DBHelper createDBHelper(String password) throws SQLException {
+  public static DBHelperImpl createDBHelper(String password) throws SQLException {
     if (dbHelper == null) {
-      dbHelper = new DBHelper(password);
+      dbHelper = new DBHelperImpl(password);
       return dbHelper;
     } else
       return dbHelper;
@@ -27,6 +29,7 @@ public class DBHelper {
     numberDAO = new NumberDAOImpl(con);
   }
 
+  @Override
   public synchronized boolean addNumber(int number) {
     if (numberDAO == null)
       createNumberDAO();
