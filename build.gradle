@@ -13,3 +13,16 @@ repositories {
 dependencies {
   implementation 'org.postgresql:postgresql:42.2.14'
 }
+
+mainClassName = 'main.Main'
+
+jar {
+  manifest {
+    attributes 'Main-Class': project.getProperty('mainClassName')
+  }
+  from {
+    configurations.runtimeClasspath.collect {
+      it.isDirectory() ? it : zipTree(it)
+    }
+  }
+}
