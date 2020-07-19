@@ -38,7 +38,7 @@ public class NumberDAOImpl implements NumberDAO {
     if (resultSet == null)
       return null;
     if (resultSet.next()) {
-      return new NumberDTO(resultSet.getInt(NumberAttribute), resultSet.getBoolean(NumberIsPrimeAttribute));
+      return new NumberDTO(resultSet.getInt(NumberAttribute), resultSet.getInt(NumberIsPrimeAttribute));
     } else
       return null;
   }
