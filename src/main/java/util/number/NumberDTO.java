@@ -1,4 +1,4 @@
-package util;
+package util.number;
 
 public class NumberDTO {
   private int num;

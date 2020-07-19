@@ -1,4 +1,4 @@
-package util;
+package util.number;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class NumberDAOImpl implements NumberDAO {
   private Connection con;
 
-  NumberDAOImpl(Connection c) {
+  public NumberDAOImpl(Connection c) {
     this.con = c;
   }
 
