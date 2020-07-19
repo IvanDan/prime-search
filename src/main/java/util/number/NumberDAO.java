@@ -12,4 +12,8 @@ public interface NumberDAO {
   boolean updateNumber(NumberDTO number) throws SQLException;
 
   NumberDTO getNumber(int num) throws SQLException;
+
+  int isPrime(int num) throws SQLException;
+
+  NumberDTO searchNumberForCheck() throws SQLException;
 }

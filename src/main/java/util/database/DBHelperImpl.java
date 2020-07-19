@@ -65,4 +65,28 @@ public class DBHelperImpl implements DBHelper {
       return null;
     }
   }
+
+  @Override
+  public synchronized int isPrime(int number) {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.isPrime(number);
+    } catch (SQLException e) {
+      System.err.println("SQLException in getNumber");
+      return -1;
+    }
+  }
+
+  @Override
+  public NumberDTO searchNumberForCheck() {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.searchNumberForCheck();
+    } catch (SQLException e) {
+      System.err.println("SQLException in getNumber");
+      return null;
+    }
+  }
 }

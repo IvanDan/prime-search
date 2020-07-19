@@ -42,4 +42,30 @@ public class NumberDAOImpl implements NumberDAO {
     } else
       return null;
   }
+
+  @Override
+  public int isPrime(int num) throws SQLException {
+    String querySearch = "select " + NumberIsPrimeAttribute + " from " + NumberTable + " where " + NumberAttribute + " = " + num + ";";
+    Statement stmt = con.createStatement();
+    ResultSet resultSet = stmt.executeQuery(querySearch);
+    if (resultSet == null)
+      return -1;
+    if (resultSet.next()) {
+      return resultSet.getInt(NumberIsPrimeAttribute);
+    } else
+      return -1;
+  }
+
+  @Override
+  public NumberDTO searchNumberForCheck() throws SQLException {
+    String querySearch = "select * from " + NumberTable + " where " + NumberIsPrimeAttribute + " = -1 order by " + NumberAttribute + ";";
+    Statement stmt = con.createStatement();
+    ResultSet resultSet = stmt.executeQuery(querySearch);
+    if (resultSet == null)
+      return null;
+    if (resultSet.next()) {
+      return new NumberDTO(resultSet.getInt(NumberAttribute), resultSet.getInt(NumberIsPrimeAttribute));
+    } else
+      return null;
+  }
 }
