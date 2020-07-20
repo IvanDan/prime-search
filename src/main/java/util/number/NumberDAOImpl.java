@@ -17,8 +17,7 @@ public class NumberDAOImpl implements NumberDAO {
     String quearyAdd = "insert into " + NumberTable +
         " (" + NumberAttribute + ") values(" + number.getNum() + ");";
     Statement stmt = con.createStatement();
-    boolean res = stmt.executeUpdate(quearyAdd) > 0;
-    return res;
+    return stmt.executeUpdate(quearyAdd) > 0;
   }
 
   @Override
@@ -26,8 +25,7 @@ public class NumberDAOImpl implements NumberDAO {
     String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + number.getIsPrime() +
         " where " + NumberAttribute + " = " + number.getNum() + ";";
     Statement stmt = con.createStatement();
-    boolean bool = stmt.executeUpdate(queryUpdate) > 0;
-    return bool;
+    return stmt.executeUpdate(queryUpdate) > 0;
   }
 
   @Override
