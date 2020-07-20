@@ -28,6 +28,7 @@ public class PrimeChecker extends Thread {
       numberToCheck = dbHelper.searchNumberForCheck();
       if (numberToCheck != null) {
         numberToCheck.setIsPrime(-2);
+        dbHelper.updateNumber(numberToCheck);
         sem.release();
 
         numberToCheck.setIsPrime(PrimeCheck.check(numberToCheck.getNum()));
