@@ -34,4 +34,6 @@ public interface DBHelper {
    * @return the row of the smallest number that has not yet been checked, null otherwise
    */
   NumberDTO searchNumberForCheck();
+
+  boolean changeStatus(int status);
 }

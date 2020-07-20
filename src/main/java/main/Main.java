@@ -13,6 +13,8 @@ public class Main {
     Semaphore sem = new Semaphore(1);
     PrimeChecker[] checkers = new PrimeChecker[50];
 
+    // check if there are no numbers in busy state (-2)
+    dbh.changeStatus(-1);
 
     for (int i = 0; i < checkers.length; i++)
       checkers[i] = new PrimeChecker(dbh, sem);

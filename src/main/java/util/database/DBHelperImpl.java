@@ -89,4 +89,16 @@ public class DBHelperImpl implements DBHelper {
       return null;
     }
   }
+
+  @Override
+  public boolean changeStatus(int status) {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.changeStatus(status);
+    } catch (SQLException e) {
+      System.err.println("SQLException in changeStatus");
+      return false;
+    }
+  }
 }

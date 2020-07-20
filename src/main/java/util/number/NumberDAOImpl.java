@@ -68,4 +68,12 @@ public class NumberDAOImpl implements NumberDAO {
     } else
       return null;
   }
+
+  @Override
+  public boolean changeStatus(int status) throws SQLException {
+    String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + status +
+        " where " + NumberIsPrimeAttribute + " = -1 or " + NumberIsPrimeAttribute + " = -2";
+    Statement stmt = con.createStatement();
+    return stmt.executeUpdate(queryUpdate) > 0;
+  }
 }
