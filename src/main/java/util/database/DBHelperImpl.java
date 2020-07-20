@@ -48,7 +48,7 @@ public class DBHelperImpl implements DBHelper {
     try {
       return numberDAO.updateNumber(number);
     } catch (SQLException e) {
-      System.err.println("SQLException in addNumber");
+      System.err.println("SQLException in updateNumber");
       return false;
     }
   }
@@ -73,7 +73,7 @@ public class DBHelperImpl implements DBHelper {
     try {
       return numberDAO.isPrime(number);
     } catch (SQLException e) {
-      System.err.println("SQLException in getNumber");
+      System.err.println("SQLException in isPrime");
       return -1;
     }
   }
@@ -85,7 +85,7 @@ public class DBHelperImpl implements DBHelper {
     try {
       return numberDAO.searchNumberForCheck();
     } catch (SQLException e) {
-      System.err.println("SQLException in getNumber");
+      System.err.println("SQLException in searchNumberForCheck");
       return null;
     }
   }
