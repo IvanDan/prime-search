@@ -17,6 +17,5 @@ public class Main {
       checkers[i] = new PrimeChecker(dbh, sem);
     for (int i = 0; i < checkers.length; i++)
       checkers[i].join();
-
   }
 }
