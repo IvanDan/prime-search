@@ -14,10 +14,10 @@ public class NumberDAOImpl implements NumberDAO {
 
   @Override
   public boolean addNumber(NumberDTO number) throws SQLException {
-    String quearyAdd = "insert into " + NumberTable +
+    String queryAdd = "insert into " + NumberTable +
         " (" + NumberAttribute + ") values(" + number.getNum() + ");";
     Statement stmt = con.createStatement();
-    return stmt.executeUpdate(quearyAdd) > 0;
+    return stmt.executeUpdate(queryAdd) > 0;
   }
 
   @Override
