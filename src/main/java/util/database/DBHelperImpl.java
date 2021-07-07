@@ -101,4 +101,16 @@ public class DBHelperImpl implements DBHelper {
       return false;
     }
   }
+
+  @Override
+  public int getMaxNum() {
+    if (numberDAO == null)
+      createNumberDAO();
+    try {
+      return numberDAO.getMaxNum();
+    } catch (SQLException e) {
+      System.err.println("SQLException in getMaxNum");
+      return -1;
+    }
+  }
 }
