@@ -11,7 +11,8 @@ repositories {
 }
 
 dependencies {
-  implementation 'org.postgresql:postgresql:42.2.14'
+  implementation 'org.postgresql:postgresql:42.2.15'
+  implementation files('C:/JavaLibrary/eratostene.jar')
 }
 
 mainClassName = 'main.Main'
