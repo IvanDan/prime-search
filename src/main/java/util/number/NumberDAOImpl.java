@@ -70,8 +70,19 @@ public class NumberDAOImpl implements NumberDAO {
   @Override
   public boolean changeStatus(int status) throws SQLException {
     String queryUpdate = "update " + NumberTable + " set " + NumberIsPrimeAttribute + " = " + status +
-        " where " + NumberIsPrimeAttribute + " = -1 or " + NumberIsPrimeAttribute + " = -2";
+        " where " + NumberIsPrimeAttribute + " = -1 or " + NumberIsPrimeAttribute + " = -2;";
     Statement stmt = con.createStatement();
     return stmt.executeUpdate(queryUpdate) > 0;
+  }
+
+  @Override
+  public int getMaxNum() throws SQLException {
+    String querySearch = "select max(" + NumberAttribute + ") from " + NumberTable + ";";
+    Statement stmt = con.createStatement();
+    ResultSet resultSet = stmt.executeQuery(querySearch);
+    if (resultSet != null)
+      return resultSet.getInt(NumberAttribute);
+    else
+      return -1;
   }
 }
