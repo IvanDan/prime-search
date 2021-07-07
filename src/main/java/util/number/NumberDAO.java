@@ -18,4 +18,6 @@ public interface NumberDAO {
   NumberDTO searchNumberForCheck() throws SQLException;
 
   boolean changeStatus(int status) throws SQLException;
+
+  int getMaxNum() throws SQLException;
 }
