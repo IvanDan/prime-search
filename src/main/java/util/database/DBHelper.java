@@ -36,4 +36,6 @@ public interface DBHelper {
   NumberDTO searchNumberForCheck();
 
   boolean changeStatus(int status);
+
+  int getMaxNum();
 }
